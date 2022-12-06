@@ -1,9 +1,8 @@
-local colorscheme = "nightfox"
+local colorscheme = "tokyonight"
 
-require('nightfox').setup({
-    options = {
-        transparent = true,
-    }
+require('tokyonight').setup({
+    transparent = true,
+    
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
