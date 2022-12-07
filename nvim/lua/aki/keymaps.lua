@@ -30,6 +30,11 @@ keymap("n", "<leader>e", ":Lex 30<CR>", opts)
 keymap("n", "<leader>j", ":bnext<CR>", opts)
 keymap("n", "<leader>k", ":bprevious<CR>", opts)
 
+
+-- Pg Up/Down
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
 -- Visual --
 -- indentation
 keymap("v", "<", "<gv", opts)
