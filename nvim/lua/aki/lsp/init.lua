@@ -3,5 +3,5 @@ if not status_ok then
 	return
 end
 
-require("aki.lsp.lsp-installer")
+require("aki.lsp.mason")
 require("aki.lsp.handlers").setup()
