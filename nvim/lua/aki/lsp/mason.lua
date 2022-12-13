@@ -13,6 +13,10 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
 })
 
+require("lspconfig").sumneko_lua.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
 require("lspconfig").gopls.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
@@ -22,6 +26,22 @@ require("lspconfig").rust_analyzer.setup{
 	capabilities = require("aki.lsp.handlers").capabilities,
 }
 require("lspconfig").pyright.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
+require("lspconfig").cuelsp.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
+require("lspconfig").terraformls.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
+require("lspconfig").ansiblels.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
+require("lspconfig").yamlls.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
 }
