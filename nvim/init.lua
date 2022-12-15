@@ -7,4 +7,4 @@ require "aki.lsp"
 require "aki.telescope"
 require "aki.treesitter"
 require "aki.lualine"
-
+require "aki.trouble"
