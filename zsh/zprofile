@@ -1,0 +1,19 @@
+# custom config for aki setup
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+export XDG_CONFIG_HOME=/home/aki/.config
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
+
+alias tmls='tmux ls'
+alias tmk='tmux kill-server'
+
+function tma {
+    name=$1
+    tmux new -A -s $name -n main
+}
