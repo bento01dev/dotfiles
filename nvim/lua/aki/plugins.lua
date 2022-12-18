@@ -69,7 +69,7 @@ return packer.startup(function(use)
 
   -- LSP
   use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim" 
+  use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig" -- enable LSP
   use 'mfussenegger/nvim-dap'
 
@@ -91,7 +91,6 @@ return packer.startup(function(use)
     end
   }
 
-  -- Lua
   use "kyazdani42/nvim-web-devicons"
   use {
     "folke/trouble.nvim",
@@ -104,6 +103,8 @@ return packer.startup(function(use)
       }
     end
   }
+
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

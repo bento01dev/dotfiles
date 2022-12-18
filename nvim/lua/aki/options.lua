@@ -43,3 +43,5 @@ vim.opt.cmdheight = 2
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+vim.opt.colorcolumn = "80"
