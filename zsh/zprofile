@@ -17,3 +17,7 @@ function tma {
     name=$1
     tmux new -A -s $name -n main
 }
+
+alias dev='tma dev'
+alias stg='tma stg'
+alias prd='tma prd'
