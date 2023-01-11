@@ -45,3 +45,7 @@ require("lspconfig").yamlls.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
 }
+require("lspconfig").clangd.setup{
+	on_attach = require("aki.lsp.handlers").on_attach,
+	capabilities = require("aki.lsp.handlers").capabilities,
+}
