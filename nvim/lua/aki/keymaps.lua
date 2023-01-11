@@ -35,6 +35,10 @@ keymap("n", "<leader>k", ":bprevious<CR>", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
+-- Copy to clipboard
+keymap("n", "<leader>y", "\"+y", opts)
+keymap("n", "<leader>yy", "\"+Y", opts)
+
 -- Visual --
 -- indentation
 keymap("v", "<", "<gv", opts)
@@ -45,11 +49,16 @@ keymap("v", "J", ":m .+1<CR>==", opts)
 keymap("v", "K", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
+-- Copy to clipboard
+keymap("v", "<leader>y", "\"+y", opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+-- Copy to clipboard
+keymap("x", "<leader>y", "\"+y", opts)
 
 -- Telescope --
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
