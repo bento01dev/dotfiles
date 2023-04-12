@@ -23,7 +23,7 @@ shell:
     - --login
 
 window:
-  decorations: full 
+  decorations: none
   opacity: 0.90
 
 key_bindings:
