@@ -15,9 +15,13 @@ alias tmk='tmux kill-server'
 
 function tma {
     name=$1
-    tmux new -A -s $name -n main
+    result=${PWD##*/}          # to assign to a variable
+    result=${result:-/}        # to correct for the case where PWD=/
+    tmux new -A -s $name -n $result
 }
 
 alias dev='tma dev'
 alias stg='tma stg'
 alias prd='tma prd'
+
+alias cat='batcat'
