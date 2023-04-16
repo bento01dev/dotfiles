@@ -17,7 +17,17 @@ function tma {
     name=$1
     result=${PWD##*/}          # to assign to a variable
     result=${result:-/}        # to correct for the case where PWD=/
-    tmux new -A -s $name -n $result
+    # Check if the session exists, discarding output
+    # We can check $? for the exit status (zero for success, non-zero for failure)
+    tmux has-session -t $name 2>/dev/null
+
+    if [ $? != 0 ]; then
+      # Set up your session 
+        tmux new -A -s $name -n $result
+    else
+        tmux select-window -t $name:$result 2>/dev/null || (tmux new-window -n $result -t $name && tmux select-window -t $name:$result)
+        tmux a -t $name 
+    fi
 }
 
 alias dev='tma dev'
