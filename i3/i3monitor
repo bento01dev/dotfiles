@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+LAPTOP="eDP-1"
+EXT="HDMI-1"
+
+if (xrandr | grep "$EXT connected"); then
+  xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+  feh --bg-fill /home/aki/Pictures/hinata.png --bg-fill /home/aki/Pictures/hinata1.png
+else
+   xrandr --output eDP-1 --primary --mode 1920x1080 --auto --rotate normal
+   feh --bg-fill /home/aki/Pictures/hinata.png --bg-fill /home/aki/Pictures/hinata1.png
+fi
+
