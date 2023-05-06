@@ -48,6 +48,7 @@ return packer.startup(function(use)
   -- Theme plugins
   use "EdenEast/nightfox.nvim" -- themes
   use 'folke/tokyonight.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use {
     'nvim-lualine/lualine.nvim',

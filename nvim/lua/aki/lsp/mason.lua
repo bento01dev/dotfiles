@@ -9,11 +9,11 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls", "pyright" },
+    ensure_installed = { "lua_ls", "rust_analyzer", "gopls", "pyright" },
     automatic_installation = true,
 })
 
-require("lspconfig").sumneko_lua.setup{
+require("lspconfig").lua_ls.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
 }
@@ -29,10 +29,10 @@ require("lspconfig").pyright.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
 }
-require("lspconfig").cuelsp.setup{
-	on_attach = require("aki.lsp.handlers").on_attach,
-	capabilities = require("aki.lsp.handlers").capabilities,
-}
+-- require("lspconfig").cuelsp.setup{
+-- 	on_attach = require("aki.lsp.handlers").on_attach,
+-- 	capabilities = require("aki.lsp.handlers").capabilities,
+-- }
 require("lspconfig").terraformls.setup{
 	on_attach = require("aki.lsp.handlers").on_attach,
 	capabilities = require("aki.lsp.handlers").capabilities,
