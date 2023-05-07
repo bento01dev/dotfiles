@@ -22,16 +22,37 @@ function tma {
     tmux has-session -t $name 2>/dev/null
 
     if [ $? != 0 ]; then
-      # Set up your session 
+      # Set up your session
         tmux new -A -s $name -n $result
     else
         tmux select-window -t $name:$result 2>/dev/null || (tmux new-window -n $result -t $name && tmux select-window -t $name:$result)
-        tmux a -t $name 
+        tmux a -t $name
     fi
 }
+
 
 alias dev='tma dev'
 alias stg='tma stg'
 alias prd='tma prd'
+
+function t {
+    res=$(zoxide query -ls | fzf | awk -F" " '{print $NF}')
+    cd "$res"
+}
+
+function td {
+    t
+    dev
+}
+
+function ts {
+    t
+    stg
+}
+
+function tp {
+    t
+    prd
+}
 
 alias cat='batcat'
