@@ -27,7 +27,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader><Tab>", "<C-w>w", opts)
 keymap("n", "<leader>o", "<C-w>o", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 
 -- Navigate buffers
 keymap("n", "<leader>j", ":bnext<CR>", opts)

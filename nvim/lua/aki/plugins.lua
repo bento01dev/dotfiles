@@ -104,6 +104,7 @@ return packer.startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional
         },
     }
+    use 'stevearc/oil.nvim'
 
     use {
         'numToStr/Comment.nvim',
