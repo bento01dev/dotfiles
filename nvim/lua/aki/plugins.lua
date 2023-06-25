@@ -49,6 +49,7 @@ return packer.startup(function(use)
     use "EdenEast/nightfox.nvim" -- themes
     use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin", tag = "v0.2.4" }
+    use "rebelot/kanagawa.nvim"
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -113,6 +114,7 @@ return packer.startup(function(use)
 
 
     use "kyazdani42/nvim-web-devicons"
+    use "nvim-tree/nvim-web-devicons"
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",

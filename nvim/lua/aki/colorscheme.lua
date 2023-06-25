@@ -1,7 +1,11 @@
-local colorscheme = "catppuccin"
+local colorscheme = "kanagawa"
 local is_transparent = true
 
 require('tokyonight').setup({
+    transparent = is_transparent,
+})
+
+require('kanagawa').setup({
     transparent = is_transparent,
 })
 
