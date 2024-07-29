@@ -47,3 +47,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.colorcolumn = "80"
+vim.opt.fillchars = {eob = " "}

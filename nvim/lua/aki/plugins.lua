@@ -42,14 +42,19 @@ packer.init {
 return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
     -- Theme plugins
     use "EdenEast/nightfox.nvim" -- themes
     use 'folke/tokyonight.nvim'
-    use { "catppuccin/nvim", as = "catppuccin", tag = "v0.2.4" }
+    use { "catppuccin/nvim", as = "catppuccin" }
     use "rebelot/kanagawa.nvim"
+    use { "ellisonleao/gruvbox.nvim" }
+    use 'navarasu/onedark.nvim'
+    use { 'rose-pine/neovim', as = 'rose-pine' }
+    use { 'projekt0n/github-nvim-theme' }
+
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -57,16 +62,16 @@ return packer.startup(function(use)
     }
 
     -- cmp plugins
-    use "hrsh7th/nvim-cmp"         -- The completion plugin
-    use "hrsh7th/cmp-buffer"       -- buffer completions
-    use "hrsh7th/cmp-path"         -- path completions
-    use "hrsh7th/cmp-cmdline"      -- buffer completions
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- buffer completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
 
     -- snippets
-    use "L3MON4D3/LuaSnip"             --snippet engine
+    use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
@@ -86,8 +91,29 @@ return packer.startup(function(use)
 
     use {
         "nvim-treesitter/nvim-treesitter",
-        commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0',
+        -- commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0',
         run = ":TSUpdate",
+    }
+    use 'nvim-treesitter/nvim-treesitter-context'
+
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    use "kyazdani42/nvim-web-devicons"
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
 
     use {
@@ -103,31 +129,15 @@ return packer.startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
+        config = function()
+            require("nvim-tree").setup {}
+        end
     }
     use 'stevearc/oil.nvim'
 
     use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
+        'lewis6991/gitsigns.nvim',
     }
-
-
-    use "kyazdani42/nvim-web-devicons"
-    use "nvim-tree/nvim-web-devicons"
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
-
 
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 

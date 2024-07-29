@@ -1,4 +1,4 @@
-local colorscheme = "kanagawa"
+local colorscheme = "duskfox"
 local is_transparent = true
 
 require('tokyonight').setup({
@@ -7,6 +7,29 @@ require('tokyonight').setup({
 
 require('kanagawa').setup({
     transparent = is_transparent,
+})
+
+require('github-theme').setup({
+    options = {
+        transparent = is_transparent,
+    },
+})
+
+require('gruvbox').setup({
+    transparent_mode = is_transparent,
+})
+
+require('onedark').setup({
+    style = 'dark',
+    transparent = is_transparent,
+})
+
+require('rose-pine').setup({
+    variant = 'moon',
+    -- dim_nc_background = true,
+    disable_background = true,
+    disable_float_background = true,
+    disable_italics = true,
 })
 
 require("catppuccin").setup({
@@ -42,15 +65,15 @@ require("catppuccin").setup({
 })
 
 require('nightfox').setup({
-  options = {
-    -- Compiled file's destination location
-    transparent = is_transparent,     -- Disable setting background
-    terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-  },
+    options = {
+        -- Compiled file's destination location
+        transparent = is_transparent, -- Disable setting background
+        terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+    },
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
+    vim.notify("colorscheme " .. colorscheme .. " not found!")
+    return
 end

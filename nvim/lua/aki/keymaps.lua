@@ -24,15 +24,23 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader><Tab>", "<C-w>w", opts)
-keymap("n", "<leader>o", "<C-w>o", opts)
-
 -- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", require("oil").open, { desc = "Open parent directory" })
 
 -- Navigate buffers
 keymap("n", "<leader>j", ":bnext<CR>", opts)
 keymap("n", "<leader>k", ":bprevious<CR>", opts)
+
+-- Use <Tab> to cycle through buffers in tab
+keymap("n", "<leader><Tab>", "<C-W>w", opts);
+keymap("n", "<leader>o", "<C-W>o", opts);
+keymap("n", "<leader>|", "<C-W>|", opts);
+keymap("n", "<leader>_", "<C-W>_", opts);
+keymap("n", "<leader>=", "<C-W>=", opts);
+
+-- Flip between horizontal and vertical split
+keymap("n", "<leader>h", "<C-W>K", opts);
+keymap("n", "<leader>v", "<C-W>H", opts);
 
 
 -- Pg Up/Down
@@ -73,11 +81,11 @@ keymap("x", "<leader>y", "\"+y", opts)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
+    -- You can pass additional configuration to telescope to change theme, layout, etc.
+    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+    })
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
@@ -92,3 +100,7 @@ vim.cmd [[
        au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=100})
    augroup END
 ]]
+
+vim.keymap.set("n", "<leader>c", function()
+    require("treesitter-context").go_to_context()
+end, { silent = true })
